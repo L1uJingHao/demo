@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>琴键跟随鼠标</title>
+    <style>
+        body{display: flex;justify-content: center;align-items: center;height: 100vh;margin: 0;overflow: hidden;}
+        .demo-title{position: absolute;left: 0;right: 0;top: 6%;font-size: 36px;text-align: center;font-weight: bold;}
+        .piano{display: flex;width: 100%;height: 200px;}
+        .piano .item{
+            flex: 1;
+            --distanceX: calc(var(--pianoX) - var(--centerX));
+            --absX: max(var(--distanceX), -1 * var(--distanceX)); /*取绝对值*/
+            --needTranslateY: max(calc(120 - var(--absX)), 0);
+            position: relative;
+            cursor: pointer;
+            display: flex;justify-content: center;align-items: center;
+        }
+        .piano:hover .item{transform: translateY(calc(var(--needTranslateY) * -1px))!important;}
+        .piano .item .tit{width: 1em;font-family: monospace;font-size: 16px;text-align: center;font-weight: bold;word-break: break-all;text-transform: uppercase;color: #fff;}
+        .piano .item .tit i{display: inline-block;vertical-align: top;font-style: normal;margin-top: 1em;}
+        .piano .item .hidden-info{position: absolute;left: 50%;bottom: 100%;transform: translateX(-50%);padding-bottom: 20px;pointer-events: none;}
+        .piano .item .hidden-info .content{position: relative;background-color: #fff;text-align: center;filter: drop-shadow(0 0 1px rgba(0,0,0,1));transform: translateY(-10px);opacity: 0;visibility: hidden;transition: .3s;}
+        .piano .item .hidden-info .content::after{content: '';position: absolute;left: 50%;top: calc(100% - 1px);border: 8px solid transparent;border-top-color: #fff;transform: translateX(-50%);}
+        .piano .item .hidden-info img{display: inline-block;vertical-align: top;max-width: 100px;max-height: 100px;}
+        .piano .item.bg-light .tit{color: #000;}
+        .piano .item:hover .hidden-info{pointer-events: initial;}
+        .piano .item:hover .hidden-info .content{transform: translateY(0);opacity: 1;visibility: visible;}
+    </style>
+</head>
+<body>
+    <div class="demo-title">琴键跟随鼠标，随机背景色</div>
+    <div class="piano">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">hover<i>me</i></div>
+            <div class="hidden-info">
+                <div class="content">
+                    <img src="images/qrcode_img1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <!-- <div class="item"></div> -->
+    </div>
+    <script>
+        //随机颜色，判断颜色深浅
+        function getRandomColor(color,isLight){
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+            color = `rgb(${r},${g},${b})`;
+            let grayLevel = r * 0.299 + g * 0.587 + b * 0.114;
+            if(grayLevel >= 192){
+                isLight = true;
+            }else{
+                isLight = false;
+            }
+            return {color: color,isLight: isLight}
+        }
+
+        //给每个item添加背景色，获取每个item的中心坐标x
+        let items = document.querySelectorAll('.item');
+        for(let i = 0; i < items.length; i++){
+            let obj = getRandomColor();
+            items[i].style.cssText = 'background-color: '+ obj.color +'';
+            //判断背景色深浅
+            if(obj.isLight === true){
+                items[i].classList.add('bg-light');
+            }
+            items[i].style.setProperty('--centerX', items[i].offsetLeft - items[i].parentElement.offsetLeft + items[i].offsetWidth / 2);
+        }
+
+        //获取鼠标在移动区域的坐标x,y
+		let mouseMoveArea = document.querySelector('.piano');
+		mouseMoveArea.addEventListener('mousemove', function (e) {
+		    mouseMoveArea.style.setProperty('--pianoX', e.clientX - this.offsetLeft);
+		    mouseMoveArea.style.setProperty('--pianoY', e.clientY - this.offsetTop);
+            clearDefaultStyle()
+		})
+
+        //鼠标移出区域清除自定义属性
+        mouseMoveArea.addEventListener('mouseleave', (e) => {
+            mouseMoveArea.style.setProperty('--pianoX', '');
+            mouseMoveArea.style.setProperty('--pianoY', '');
+            setDefaultStyle()
+        })
+
+        //获取中间item的下标
+        function getCenterItemIndex(){
+            if(items.length % 2 == 0){
+                return items.length / 2
+            }else{
+                return (items.length - 1) / 2
+            }
+        }
+
+        //设置默认样式
+        function setDefaultStyle(){
+            items[getCenterItemIndex()-2].style.transform = 'translateY(-40px)';
+            items[getCenterItemIndex()-1].style.transform = 'translateY(-80px)';
+            items[getCenterItemIndex()].style.transform = 'translateY(-120px)';
+            items[getCenterItemIndex()+1].style.transform = 'translateY(-80px)';
+            items[getCenterItemIndex()+2].style.transform = 'translateY(-40px)';
+        }
+        setDefaultStyle()
+
+        //清除默认样式
+        function clearDefaultStyle(){
+            items[getCenterItemIndex()-2].style.transform = 'translateY(0)';
+            items[getCenterItemIndex()-1].style.transform = 'translateY(0)';
+            items[getCenterItemIndex()].style.transform = 'translateY(0)';
+            items[getCenterItemIndex()+1].style.transform = 'translateY(0)';
+            items[getCenterItemIndex()+2].style.transform = 'translateY(0)';
+        }
+
+        //测试其他值
+        // for(let i = 0; i < items.length; i++){
+        //     items[i].addEventListener('mousedown', function (e) {
+        //         let target = e.target;
+        //         target.style.setProperty('--x', e.offsetX);
+        //         target.style.setProperty('--y', e.offsetY);
+        //         target.style.setProperty('--width', this.offsetWidth);
+        //         target.style.setProperty('--height', this.offsetHeight);
+        //         target.style.setProperty('--left', this.offsetLeft);
+        //         target.style.setProperty('--top', this.offsetTop);
+        //         target.style.setProperty('--parentLeft', this.parentElement.offsetLeft);
+        //         target.style.setProperty('--centerX', this.offsetLeft - this.parentElement.offsetLeft + this.offsetWidth / 2);
+        //     })
+        // }
+    </script>
+</body>
+</html>
